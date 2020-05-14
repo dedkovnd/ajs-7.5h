@@ -17,7 +17,7 @@ const order = ["name", "level"];
 
 function orderByProps(obj,order){
   const orderList = [];
-  let deletedObj = obj;
+  let deletedObj = Object.assign({}, obj);
   let keys = [];
   order.forEach((elem) => {
     if(elem in deletedObj) {
@@ -60,17 +60,21 @@ let character = {
     }
   ]
 }
+const {special} = character;
 
-let attack;
-
-function showAttack(character) {
-  attack = character.special.filter(function(i) {
-    if("description" in i == false) {
-      i.description = "значение по умолчанию";
+function showAttack(special) {
+  let attackList = [];
+  for (let {id, name, icon, description = "Описание недоступно"} of special) {
+    let attack = {
+      id: id,
+      name: name,
+      icon: icon,
+      description: description
     }
-    return i.id > -1;
-  })
-  return attack;
+    attackList.push(attack);
+  }
+  return attackList;
 }
+
 export {showAttack};
 
