@@ -6,16 +6,7 @@ import sum from './basic';
 // console.log(sum([1, 2]));
 
 
-const obj = {
-  name: "мечник",
-  health: 10,
-  level: 2,
-  attack: 80,
-  defence: 40
-}
-const order = ["name", "level"];
-
-function orderByProps(obj,order){
+export function orderByProps(obj,order){
   const orderList = [];
   let deletedObj = Object.assign({}, obj);
   let keys = [];
@@ -34,8 +25,6 @@ function orderByProps(obj,order){
   })
   return orderList;
 }
-orderByProps(obj,order);
-export {orderByProps};
 
 //вторая задача
 let character = {
@@ -62,7 +51,7 @@ let character = {
 }
 const {special} = character;
 
-function showAttack(special) {
+export function showAttack(special) {
   let attackList = [];
   for (let {id, name, icon, description = "Описание недоступно"} of special) {
     let attack = {
@@ -76,5 +65,5 @@ function showAttack(special) {
   return attackList;
 }
 
-export {showAttack};
+
 
