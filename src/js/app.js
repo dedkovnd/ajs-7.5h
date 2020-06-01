@@ -27,30 +27,6 @@ export function orderByProps(obj,order){
 }
 
 //вторая задача
-let character = {
-  name: 'Лучник',
-  type: 'Bowman',
-  health: 50,
-  level: 3,
-  attack: 40,
-  defence: 10,
-  special: [
-    {
-      id: 8,
-      name: 'Двойной выстрел',
-      icon: 'http://...',
-      description: 'Двойной выстрел наносит двойной урон'
-    },
-    {
-      id: 9,
-      name: 'Нокаутирующий удар',
-      icon: 'http://...'
-      // <- обратите внимание, описание "засекречено"
-    }
-  ]
-}
-const {special} = character;
-
 export function showAttack(special) {
   let attackList = [];
   for (let {id, name, icon, description = "Описание недоступно"} of special) {

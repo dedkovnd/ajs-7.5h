@@ -1,5 +1,5 @@
-import showAttack from '../app.js';
-import orderByProps from '../app.js';
+import {showAttack} from '../app.js';
+import {orderByProps} from '../app.js';
 
 test("function ordered props",()=>{
   const obj = {
@@ -17,10 +17,10 @@ test("function ordered props",()=>{
     { key: 'defence', value: 40 },
     { key: 'health', value: 10 }
   ]
-  expect(orderByProps(obj)).toBe(orderProps)
+  expect(orderByProps(obj,order)).toStrictEqual(orderProps)
 })
 
-test("positive value of id", ()=> {
+test("empty discription to equal string описание недоступно", ()=> {
 
   let character = {
     special: [
@@ -38,8 +38,21 @@ test("positive value of id", ()=> {
       }
     ]
   }
+  let resultShowAttack = [
+    {
+      id: 8,
+      name: 'Двойной выстрел',
+      icon: 'http://...',
+      description: 'Двойной выстрел наносит двойной урон'
+    },
+    {
+      id: 9,
+      name: 'Нокаутирующий удар',
+      icon: 'http://...',
+      description: 'Описание недоступно'
+    }
+  ]
   const {special} = character;
-  showAttack(character)
-  expect(attack.length).toBe(attack.length > 0)
+  expect(showAttack(special)).toStrictEqual(resultShowAttack)
 })
 
